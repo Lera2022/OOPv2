@@ -5,13 +5,28 @@ import java.util.Scanner;
 public class Main {
     public static void main(String[] args) {
         ArrayList<Persona> noDeptPersona = new ArrayList<>();
-        Group  depAcc = new Group("Accounting");
-        Group  depIT = new Group("IT");
+        ArrayList<Group> groupsInCorp = new ArrayList<>();
+        // Group  depAcc = new Group("Accounting");
+        // Group  depIT = new Group("IT");
 
         Main run = new Main();
+        Group dep1 = run.setGroup(groupsInCorp);
+        Group dep2 = run.setGroup(groupsInCorp);
         run.setPersona(noDeptPersona);
-        run.addPersonaToDepartment(noDeptPersona.get(0), depAcc);
-        run.showResultAddPersonaToGroup(depAcc);
+        run.addPersonaToDepartment(noDeptPersona.get(0), dep1);
+        run.changeDepartment(noDeptPersona.get(0), dep2, dep1);
+    }
+
+    public Group setGroup(ArrayList<Group> groupsInCorp) {
+
+        Scanner in = new Scanner(System.in);
+        String GroupName;
+        System.out.println("Введите название отдела:");
+        GroupName = in.nextLine();
+        Group group = new Group(GroupName);
+        groupsInCorp.add(group);
+        System.out.println(groupsInCorp);
+        return group;
     }
 
     public void setPersona(ArrayList<Persona> noDeptPersona) {
@@ -21,7 +36,7 @@ public class Main {
         String Sex;
         int Age;
         System.out.println("-".repeat(25));
-        System.out.println("Сортировка по параметру:");
+        System.out.println("Заполните данные работника:");
         System.out.println("\t1 - ФИО работника: ");
         FIO = in.nextLine();
         System.out.println("\t2 - Пол работника: ");
@@ -42,8 +57,16 @@ public class Main {
     }
     public void showResultAddPersonaToGroup(Group group){
         System.out.println("Работники отдела: ");
-        System.out.println(group.personaInDept.toString());
+        System.out.println(group.personaInDept);
     }
-    
+    public void changeDepartment(Persona persona, Group group, Group dep1) {
+        boolean check = persona.checkAddGroup(group);
+        if (check) {
+            group.addPeople(persona);
+            dep1.putAwayPeople(persona);
+        } else {
+            System.out.println("Отказался");
+        }
+    }
 
 }

@@ -14,8 +14,7 @@ public class Group extends Department {
         personaInDept.add(persona);
     }
 
-    @Override
-    public String toString() {
-        return brand;
+    public void putAwayPeople(Persona persona){
+        personaInDept.remove(persona);
     }
 }

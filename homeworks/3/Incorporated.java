@@ -1,8 +1,10 @@
-
+import java.util.ArrayList;
 
 public class Incorporated {
     String corpName;
     String corpDept;
+
+    ArrayList<Group> groupsInCorp = new ArrayList<>();
 
     public void incorporated(String CorpName, String CorpDept){
         this.corpName = CorpName;

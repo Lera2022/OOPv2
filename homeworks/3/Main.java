@@ -11,6 +11,7 @@ public class Main {
         Main run = new Main();
         run.setPersona(noDeptPersona);
         run.addPersonaToDepartment(noDeptPersona.get(0), depAcc);
+        run.showResultAddPersonaToGroup(depAcc);
     }
 
     public void setPersona(ArrayList<Persona> noDeptPersona) {
@@ -41,7 +42,8 @@ public class Main {
     }
     public void showResultAddPersonaToGroup(Group group){
         System.out.println("Работники отдела: ");
-        System.out.println(group.personaInDept);
+        System.out.println(group.personaInDept.toString());
     }
+    
 
 }

@@ -2,9 +2,9 @@
 class Account implements Accountable<String, Integer> {
 
     private String id;
-    private int sum;
+    private Integer sum;
 
-    Account(String id, int sum) {
+    Account(String id, Integer sum) {
         this.id = id;
         this.sum = sum;
     }
@@ -13,11 +13,11 @@ class Account implements Accountable<String, Integer> {
         return id;
     }
 
-    public int getSum() {
+    public Integer getSum() {
         return sum;
     }
 
-    public void setSum(int sum) {
+    public void setSum(Integer sum) {
         this.sum = sum;
     }
 

@@ -1,8 +1,5 @@
-
-interface Accountable<T> {
+interface Accountable<T, S> {
     T getId();
-
-    int getSum();
-
-    void setSum(int sum);
+    S getSum();
+    void setSum(S sum);
 }

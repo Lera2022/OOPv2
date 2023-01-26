@@ -3,7 +3,23 @@ import java.util.*;
 
 public class Main {
     public static void main(String[] args) {
+        Main run = new Main();
         Company first = new Company("Our");
+        Group depAcc = new Group("Accounting");
+        run.addGroupToCompany(first, depAcc);
+        Group depIT = new Group("IT");
+        run.addGroupToCompany(first, depIT);
+        Persona programmer =  new Persona("Kolesnikova Valeria Aleksandrovna", "F", 38);
+        depIT.addPeople(programmer);
+        Group depLog = new Group("Logistics");
+        run.addGroupToCompany(first, depLog);
+        Persona logistician = new Persona("Efimov Stanislav Vital'evich", "M", 54);
+        depLog.addPeople(logistician);
+        Group depFin = new Group("Finance");
+        run.addGroupToCompany(first, depFin);
+        Persona financier = new Persona("Morkovkin Kirill Petrovich", "M", 45);
+        depFin.addPeople(financier);
+        
         View.mainMenu(first);
         // Main run = new Main();
 
@@ -64,9 +80,10 @@ public class Main {
         }
     }
 
-    public String UpdateDepint() {
+    public void UpdateDepint(Persona x, Group group, Company company) {
+        Main run = new Main();
         Scanner in = new Scanner(System.in);
-        System.out.println("Хотите перейти в другой отдел?:");
+        System.out.println("Хотите перевести сотрудника в другой отдел?:");
         System.out.println("0 - НЕТ\n1 - ДА");
         int answer = in.nextInt();
 
@@ -74,11 +91,9 @@ public class Main {
             System.out.println("Молодец, стабильность - признак мастерста");
         }
         if (answer == 1) {
-            System.out.println("В какой отдел желаете перейти?");
-            System.out.println("IT\nLogistics\nFinance");
+            run.addPersonaToDepartment(x, View.findGroup(company), company);
         }
-        String answer1 = in.next();
-        return answer1;
+
     }
 
 

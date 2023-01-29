@@ -1,0 +1,8 @@
+public class Addressbook {
+    ArrayList<Phonebook> bb = new ArrayList;
+
+    public void Addressbook(ArrayList<Phonebook> pb){
+        pb.add(new Phonebook("Иванов Иван Иванович", "1234567890", "Иваново"));
+        pb.add(new Phonebook("Сидоров Сидор Сидорович", "5643222222", "Сидорово"));
+    }
+}

@@ -3,7 +3,7 @@ public class Phonebook {
     String Phone;
     String City;
 
-    public void Phonebook(String name, String phone, String city) {
+    public Phonebook(String name, String phone, String city) {
         this.Name = name;
         this.Phone = phone;
         this.City = city;

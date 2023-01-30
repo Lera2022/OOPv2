@@ -12,6 +12,8 @@ public class Filemanager {
     String FILE_PATH_FULL = FILE_PATH + FILE_NAME_EXPORT;
 
     public void ExportFile(ArrayList<Phonebook> pb) {
+        Log log = new Log();
+        log.logEntry("Выгрузить данные");
         try (FileWriter writer = new FileWriter(FILE_PATH + FILE_NAME_EXPORT, false)) {
             // запись всей строки
             // String text = "Hello Gold!";
@@ -30,6 +32,8 @@ public class Filemanager {
     }
 
     public void ImportFile(ArrayList<Phonebook> pb) {
+        Log log = new Log();
+        log.logEntry("Загрузить данные");
         try {
             File file = new File(FILE_PATH_FULL);
             // создаем объект FileReader для объекта File
